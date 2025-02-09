@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "descripcion": "Ir al gym",
+        "completada": false
+    },
+    {
+        "id": 2,
+        "descripcion": "Estudiar",
+        "completada": true
+    },
+    {
+        "id": 3,
+        "descripcion": "Hacer ejercicio",
+        "completada": false
+    },
+    {
+        "id": 5,
+        "descripcion": "Hacer la compra",
+        "completada": true
+    }
+]
