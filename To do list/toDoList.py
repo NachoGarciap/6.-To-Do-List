@@ -17,7 +17,8 @@ class toDoList:
             print('2. Listar las tareas')
             print('3. Marcar tarea como completada')
             print('4. Eliminar una tarea')
-            print('5. Salir')
+            print('5. Abrir archivo JSON')
+            print('6. Salir')
 
             opcion = int(input('Introduce una opción valida: '))
 
@@ -30,6 +31,8 @@ class toDoList:
             elif opcion == 4:
                 self.eliminar_tarea()
             elif opcion == 5:
+                self.abrir_json()
+            elif opcion == 6:
                 print('Saliendo del programa...')
                 break
             else:
@@ -104,7 +107,13 @@ class toDoList:
             with open('tareas.json', 'r', encoding='utf8') as archivo:
                 self.tareas = json.load(archivo)  # cargar la lista de tareas
 
-
-# PRUEBA
-prueba = toDoList()
-prueba.menu()
+    def abrir_json(self):
+        if os.path.exists('tareas.json'):  # verificare si el archivo existe
+            with open('tareas.json', 'r', encoding='utf8') as archivo:
+                tareas_json = json.load(archivo)
+                print("\nContenido del archivo JSON:")
+                for tarea in tareas_json:
+                    estado = '✅ Completada' if tarea['completada'] else '❌ Pendiente'
+                    print(f'ID: {tarea["id"]} | Descripcion:  {tarea["descripcion"]} -> {estado}')
+        else:
+            print("El archivo JSON no existe.")
